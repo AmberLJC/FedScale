@@ -22,14 +22,11 @@ jobs:
         python-version: 3.7
     - name: Install dependencies
       run: |
-        # $CONDA is an environment variable pointing to the root of the miniconda directory
-        $CONDA/bin/conda env update --file environment.yml --name fedscale
-
-    - name: Test with pytest
-      run: |
-        pip install -e .
         conda init bash
         . ~/.bashrc
+        # $CONDA is an environment variable pointing to the root of the miniconda directory
+        $CONDA/bin/conda env update --file environment.yml --name fedscale
+        pip install -e .
         conda activate fedscale
         conda install pytest 
         pytest
