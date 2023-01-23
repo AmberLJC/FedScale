@@ -11,7 +11,7 @@ permissions:
 
 
 jobs:
-  example-3:
+  conda-test:
     name:  Linux
     runs-on: "ubuntu-latest"
     defaults:
@@ -28,7 +28,7 @@ jobs:
       - run: |
           conda info
           conda list
-
+          pip install -e .
           conda install pytest 
           pytest
           
